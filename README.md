@@ -3,7 +3,7 @@
 Static resume website with a live visitor counter built using AWS serverless services.
 
 ## Live Demo
-- Website: https://your-cloudfront-url
+- Website: https://d1l6jcvu4zf64q.cloudfront.net/
 - API: https://your-api-id.execute-api.region.amazonaws.com/getcount
 
 ---
