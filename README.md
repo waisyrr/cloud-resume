@@ -1,71 +1,153 @@
-# Serverless Cloud Resume Challenge
+# 🚀 Serverless Cloud Resume Challenge
+
+
 
 Static resume website with a live visitor counter built using AWS serverless services.
 
-## Live Demo
-- Website: https://d1l6jcvu4zf64q.cloudfront.net/
-- API: https://your-api-id.execute-api.region.amazonaws.com/getcount
+
+
+## 🌐 Live Demo
+
+
+
+- 💻 **Live Website:** https://d1l6jcvu4zf64q.cloudfront.net/
+
+- ⚙️ **Live Visitor Counter API:** https://25ktpno81j.execute-api.eu-north-1.amazonaws.com/getcount
+
+
 
 ---
 
-## What it does
 
-- Displays a static resume hosted on Amazon S3
-- Serves content globally via Amazon CloudFront (HTTPS enabled)
-- Tracks page visits using a DynamoDB table
-- Uses AWS Lambda (Python + boto3) to increment and return visitor count
-- Frontend fetches live counter from API Gateway endpoint
-- Automatically deploys updates via GitHub Actions CI/CD
 
----
+## 📋 What it does
 
-## Architecture
 
-S3 (frontend) → CloudFront → API Gateway → Lambda → DynamoDB
 
----
+- 📄 Serves a static resume website hosted on Amazon S3  
 
-## Tech Stack
+- ⚡ Delivers content globally via Amazon CloudFront (HTTPS enabled)  
 
-- Amazon S3
-- Amazon CloudFront
-- AWS Lambda (Python)
-- Amazon API Gateway (HTTP API)
-- Amazon DynamoDB
-- GitHub Actions
+- 📊 Tracks page visits using Amazon DynamoDB  
+
+- 🧠 Uses AWS Lambda (Python + boto3) to increment and return visitor count  
+
+- 🔌 Frontend fetches live visitor count via API Gateway endpoint  
+
+- 🤖 Automated deployments using GitHub Actions CI/CD pipeline  
+
+
 
 ---
 
-## API
+
+
+## 🏗️ Architecture
+
+
+
+Frontend (S3 + CloudFront) → API Gateway → Lambda (Python) → DynamoDB
+
+
+
+![Project Architecture Diagram](architecture.png)
+
+
+
+---
+
+
+
+## 🛠️ Tech Stack
+
+
+
+- 🪣 Amazon S3  
+
+- 🌐 Amazon CloudFront  
+
+- ⚡ AWS Lambda (Python)  
+
+- ⚙️ Amazon API Gateway (HTTP API)  
+
+- 💾 Amazon DynamoDB  
+
+- 🤖 GitHub Actions  
+
+
+
+---
+
+
+
+## 🔌 API
+
+
 
 ### GET /getcount
 
-Returns current visitor count.
 
-Example response:
+
+Returns the current visitor count stored in DynamoDB.
+
+
+
+#### Response
+
+
+
+```json
 
 {
+
   "count": 42
+
 }
 
----
+````
 
-## Setup (optional)
 
-1. Create and configure S3 bucket for static hosting
-2. Upload `index.html`
-3. Create DynamoDB table: `cloud-resume-counter`
-4. Deploy Lambda function with DynamoDB permissions
-5. Create API Gateway route `/getcount`
-6. Connect frontend fetch request to API endpoint
-7. Set up GitHub Actions for automated deployment
 
 ---
 
-## Notes
 
-- Ensure CORS is enabled on API Gateway
-- CloudFront is used for HTTPS + caching
-- IAM roles follow least-privilege access
+
+## 🚀 Deployment Steps
+
+
+
+1. 🪣 Create and configure S3 bucket for static website hosting
+
+2. 📄 Upload `index.html` and frontend assets
+
+3. 💾 Create DynamoDB table: `cloud-resume-counter`
+
+4. ⚡ Deploy Lambda function with DynamoDB permissions
+
+5. ⚙️ Create API Gateway route `/getcount` connected to Lambda
+
+6. 🔌 Update frontend to call API Gateway endpoint
+
+7. 🤖 Configure GitHub Actions for automated deployment
+
+
 
 ---
+
+
+
+## 💡 Notes
+
+
+
+* 🔑 Ensure CORS is enabled on API Gateway
+
+* 💨 CloudFront provides HTTPS and caching
+
+* 🔒 IAM roles follow least-privilege access principles
+
+
+
+```
+
+```
