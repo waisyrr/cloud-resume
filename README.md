@@ -54,7 +54,7 @@ This project demonstrates modern cloud engineering practices including Infrastru
 
 ## 🏗️ Architecture
 
-![Project Architecture Diagram](architecture.png)
+![Project Architecture Diagram](architecture6.png)
 
 ---
 
