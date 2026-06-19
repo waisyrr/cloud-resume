@@ -1,153 +1,282 @@
-# 🚀 Serverless Cloud Resume Challenge
+# 🚀 Cloud Resume Challenge on AWS
 
+A production-grade serverless web application built on AWS and provisioned entirely with Terraform.
 
+This project demonstrates modern cloud engineering practices including Infrastructure as Code (IaC), serverless computing, CI/CD automation, CDN delivery, and NoSQL database integration.
 
-Static resume website with a live visitor counter built using AWS serverless services.
+### Core Technologies
 
+* 🏗️ Infrastructure as Code (Terraform)
 
+* ⚡ Serverless Architecture (AWS Lambda)
+
+* 🚀 CI/CD Automation (GitHub Actions)
+
+* 🌍 Global Content Delivery (CloudFront)
+
+* 💾 NoSQL Database (DynamoDB)
+
+* 🔌 API Development (API Gateway)
+
+---
 
 ## 🌐 Live Demo
 
+**Website:** https://d1l6jcvu4zf64q.cloudfront.net/
 
-
-- 💻 **Live Website:** https://d1l6jcvu4zf64q.cloudfront.net/
-
-- ⚙️ **Live Visitor Counter API:** https://25ktpno81j.execute-api.eu-north-1.amazonaws.com/getcount
-
-
+**Visitor Counter API:** https://t9bxl7c440.execute-api.eu-north-1.amazonaws.com/counter
 
 ---
 
+## ✨ Features
 
+* Static resume website hosted on Amazon S3
 
-## 📋 What it does
+* Global low-latency delivery through Amazon CloudFront
 
+* HTTPS-secured public endpoint
 
+* Serverless visitor counter powered by AWS Lambda
 
-- 📄 Serves a static resume website hosted on Amazon S3  
+* Persistent visitor tracking with DynamoDB
 
-- ⚡ Delivers content globally via Amazon CloudFront (HTTPS enabled)  
+* Atomic counter updates for accurate metrics
 
-- 📊 Tracks page visits using Amazon DynamoDB  
+* Infrastructure fully managed with Terraform
 
-- 🧠 Uses AWS Lambda (Python + boto3) to increment and return visitor count  
+* Automated deployments through GitHub Actions
 
-- 🔌 Frontend fetches live visitor count via API Gateway endpoint  
+* Automatic CloudFront cache invalidation after deployments
 
-- 🤖 Automated deployments using GitHub Actions CI/CD pipeline  
-
-
+* Principle of Least Privilege IAM configuration
 
 ---
-
-
 
 ## 🏗️ Architecture
 
-
-
-Frontend (S3 + CloudFront) → API Gateway → Lambda (Python) → DynamoDB
-
-
-
 ![Project Architecture Diagram](architecture.png)
-
-
 
 ---
 
+## 🏗️ Infrastructure as Code
 
+All cloud resources are provisioned and managed using Terraform.
+
+### Managed Resources
+
+* Amazon S3
+
+* Amazon CloudFront
+
+* API Gateway
+
+* AWS Lambda
+
+* DynamoDB
+
+* IAM Roles & Policies
+
+### Benefits
+
+* Version-controlled infrastructure
+
+* Reproducible deployments
+
+* Consistent environments
+
+* Automated provisioning
+
+* Easier maintenance and scaling
+
+---
+
+## 📂 Repository Structure
+
+```text
+
+.
+
+├── .github/
+
+│   └── workflows/
+
+│       └── deploy.yml           # CI/CD pipeline
+
+├── backend/
+
+│   └── lambda_function.py       # Visitor counter logic
+
+├── terraform/
+
+│   ├── main.tf                  # Infrastructure definitions
+
+│   ├── variables.tf
+
+│   └── outputs.tf
+
+├── index.html                   # Resume frontend
+
+├── .gitignore
+
+└── README.md
+
+```
+
+---
 
 ## 🛠️ Tech Stack
 
+| Category               | Technology            |
 
+| ---------------------- | --------------------- |
 
-- 🪣 Amazon S3  
+| Infrastructure as Code | Terraform             |
 
-- 🌐 Amazon CloudFront  
+| CI/CD                  | GitHub Actions        |
 
-- ⚡ AWS Lambda (Python)  
+| Frontend               | HTML, CSS, JavaScript |
 
-- ⚙️ Amazon API Gateway (HTTP API)  
+| Hosting                | Amazon S3             |
 
-- 💾 Amazon DynamoDB  
+| CDN                    | Amazon CloudFront     |
 
-- 🤖 GitHub Actions  
+| API                    | Amazon API Gateway    |
 
+| Compute                | AWS Lambda (Python)   |
 
+| Database               | Amazon DynamoDB       |
+
+| Security               | IAM                   |
 
 ---
 
+## 🔌 API Specification
 
+### POST /counter
 
-## 🔌 API
+Increments and returns the current visitor count.
 
-
-
-### GET /getcount
-
-
-
-Returns the current visitor count stored in DynamoDB.
-
-
-
-#### Response
-
-
+### Example Response
 
 ```json
 
 {
 
-  "count": 42
+  "count": 95
 
 }
 
-````
-
-
+```
 
 ---
 
+## 🚀 Deployment
 
+### Provision Infrastructure
 
-## 🚀 Deployment Steps
+```bash
 
+cd terraform
 
+terraform init
 
-1. 🪣 Create and configure S3 bucket for static website hosting
+terraform plan
 
-2. 📄 Upload `index.html` and frontend assets
+terraform apply
 
-3. 💾 Create DynamoDB table: `cloud-resume-counter`
+```
 
-4. ⚡ Deploy Lambda function with DynamoDB permissions
+### Deploy Frontend
 
-5. ⚙️ Create API Gateway route `/getcount` connected to Lambda
+The frontend deployment process is fully automated through GitHub Actions.
 
-6. 🔌 Update frontend to call API Gateway endpoint
+Any push to the `main` branch will:
 
-7. 🤖 Configure GitHub Actions for automated deployment
+1. Upload updated assets to Amazon S3
 
+2. Invalidate the CloudFront cache
 
+3. Deploy changes globally
+
+```bash
+
+git add .
+
+git commit -m "feat: update resume"
+
+git push origin main
+
+```
 
 ---
 
+## 🔒 Security Considerations
 
+### IAM Least Privilege
 
-## 💡 Notes
+Lambda permissions are restricted to only the DynamoDB operations required by the application.
 
+### CORS Configuration
 
+API Gateway is configured to accept requests only from approved origins.
 
-* 🔑 Ensure CORS is enabled on API Gateway
+### HTTPS Everywhere
 
-* 💨 CloudFront provides HTTPS and caching
+CloudFront provides encrypted communication between users and the application.
 
-* 🔒 IAM roles follow least-privilege access principles
+---
 
+## 💡 Engineering Highlights
 
+### Fully Serverless Design
 
-```
+No servers to provision, manage, or patch. AWS services scale automatically based on demand.
 
-```
+### Atomic Counter Updates
+
+DynamoDB update expressions ensure accurate visitor counts even under concurrent requests.
+
+### Infrastructure as Code
+
+The entire environment can be recreated from source-controlled Terraform configurations.
+
+### Automated CI/CD
+
+GitHub Actions removes manual deployment steps and ensures consistent releases.
+
+### Global Performance
+
+CloudFront edge locations reduce latency and improve user experience worldwide.
+
+---
+
+## 📚 Skills Demonstrated
+
+* AWS Architecture
+
+* Infrastructure as Code (Terraform)
+
+* Serverless Development
+
+* CI/CD Automation
+
+* Cloud Security
+
+* API Development
+
+* DynamoDB
+
+* CloudFront
+
+* GitHub Actions
+
+* IAM Policy Design
+
+---
+
+## 🎯 Project Goal
+
+The Cloud Resume Challenge is designed to bridge the gap between cloud certifications and real-world implementation.
+
+This project demonstrates the ability to design, provision, automate, secure, and operate a complete serverless application using AWS best practices.
+
