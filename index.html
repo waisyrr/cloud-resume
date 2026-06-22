@@ -3,56 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uwais Watkins - Resume</title>
+    <title>Uwais Watkins - Portfolio</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        /* Smooth transition for tab content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen py-8 px-4 sm:px-6 lg:px-8">
 
-    <div class="max-w-3xl mx-auto bg-white p-8 sm:p-12 rounded-2xl shadow-sm border border-slate-100 space-y-10">
+    <div class="max-w-4xl mx-auto bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-slate-100 space-y-8">
         
-        <header class="border-b border-slate-100 pb-6">
-            <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Uwais Watkins</h1>
-            <p class="text-lg font-medium text-blue-600 mt-2">Aspiring IT / Cloud Engineer</p>
+        <header class="border-b border-slate-100 pb-6 space-y-6">
+            <div>
+                <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Uwais Watkins</h1>
+                <p class="text-lg font-medium text-blue-600 mt-2">IT Professional & Cloud Systems Engineer</p>
+            </div>
+
+            <nav class="flex space-x-2 sm:space-x-4 overflow-x-auto pb-2">
+                <button onclick="switchTab('home')" id="btn-home" class="nav-btn px-4 py-2 rounded-lg font-medium text-sm transition-colors bg-blue-50 text-blue-700">
+                    About & Skills
+                </button>
+                <button onclick="switchTab('projects')" id="btn-projects" class="nav-btn px-4 py-2 rounded-lg font-medium text-sm transition-colors text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                    Projects
+                </button>
+                <button onclick="switchTab('architecture')" id="btn-architecture" class="nav-btn px-4 py-2 rounded-lg font-medium text-sm transition-colors text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                    How I Built This Site
+                </button>
+            </nav>
         </header>
 
-        <section class="space-y-4">
-            <h2 class="text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                Skills
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
-                    <span class="text-blue-500 font-semibold">⚡</span>
-                    <span>Python <span class="text-xs text-slate-500 bg-slate-200/60 px-2 py-0.5 rounded-full ml-1">learning</span></span>
+        <main class="min-h-[400px]">
+            
+            <section id="tab-home" class="tab-content active space-y-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900 tracking-tight mb-4">Technical Profile</h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        I am an IT and engineering professional passionate about building reliable, scalable, and automated systems. I bridge the gap between traditional IT infrastructure and modern cloud-native solutions, focusing on Infrastructure as Code, serverless architecture, and operational excellence.
+                    </p>
+                    
+                    <!-- Resume Download Button -->
+                    <div class="mt-6">
+                        <a href="Watkins Resume.pdf" download="Uwais_Watkins_Resume.pdf" 
+                           class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition shadow-sm">
+                            <span>📥</span> Download PDF Resume
+                        </a>
+                    </div>
                 </div>
-                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
-                    <span class="text-blue-500 font-semibold">⚡</span>
-                    <span>Git / GitHub</span>
-                </div>
-                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
-                    <span class="text-blue-500 font-semibold">⚡</span>
-                    <span>Cloud basics</span>
-                </div>
-                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
-                    <span class="text-blue-500 font-semibold">⚡</span>
-                    <span>Automated with GitHub Actions</span>
-                </div>
-            </div>
-        </section>
 
-        <section class="space-y-4">
-            <h2 class="text-2xl font-bold text-slate-900 tracking-tight">Projects</h2>
-            <div class="p-5 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
-                <div class="flex items-center justify-between">
-                    <h3 class="font-semibold text-slate-900 text-lg">Cloud Resume Challenge</h3>
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200">
-                        In Progress
-                    </span>
+                <div class="space-y-4">
+                    <h2 class="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">Core Competencies</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="text-blue-500 font-semibold">☁️</span>
+                            <span>AWS & Cloud Architecture</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="text-blue-500 font-semibold">🏗️</span>
+                            <span>Terraform & IaC</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="text-blue-500 font-semibold">🐧</span>
+                            <span>Linux & Systems Administration</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="text-blue-500 font-semibold">💻</span>
+                            <span>Python Scripting <span class="text-xs text-slate-500 bg-slate-200/60 px-2 py-0.5 rounded-full ml-1">Learning</span></span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="text-blue-500 font-semibold">🔄</span>
+                            <span>CI/CD (GitHub Actions)</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="text-blue-500 font-semibold">🌐</span>
+                            <span>Networking & DNS Setup</span>
+                        </div>
+                    </div>
                 </div>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    A full-stack serverless application built on AWS utilizing S3, CloudFront, API Gateway, Lambda, and DynamoDB, entirely deployed via an automated CI/CD pipeline.
-                </p>
-            </div>
-        </section>
+            </section>
+
+            <section id="tab-projects" class="tab-content space-y-6">
+                <h2 class="text-2xl font-bold text-slate-900 tracking-tight">Featured Work</h2>
+                
+                <div class="p-6 bg-slate-50 rounded-xl border border-slate-100 space-y-4 transition hover:shadow-md">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <h3 class="font-bold text-slate-900 text-xl">The Cloud Resume Challenge</h3>
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200 w-max">
+                            Live & Operational
+                        </span>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        A production-grade serverless web application built on AWS and provisioned entirely with Terraform. Demonstrates modern cloud engineering practices including Infrastructure as Code (IaC), serverless computing, CI/CD automation, CDN delivery, and NoSQL database integration.
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="text-xs bg-white border border-slate-200 px-2 py-1 rounded text-slate-600">AWS S3 & CloudFront</span>
+                        <span class="text-xs bg-white border border-slate-200 px-2 py-1 rounded text-slate-600">API Gateway & Lambda</span>
+                        <span class="text-xs bg-white border border-slate-200 px-2 py-1 rounded text-slate-600">DynamoDB</span>
+                        <span class="text-xs bg-white border border-slate-200 px-2 py-1 rounded text-slate-600">Terraform</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-architecture" class="tab-content space-y-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900 tracking-tight mb-3">Under the Hood</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        This site is more than just HTML. It evolved from a manually deployed setup into a fully automated Infrastructure-as-Code pipeline. Here is how the serverless backend operates:
+                    </p>
+                    
+                    <div class="bg-slate-900 text-slate-50 p-4 rounded-xl text-center text-sm font-mono overflow-x-auto whitespace-nowrap mb-8">
+                        User ➔ CloudFront ➔ S3 (Frontend) & API Gateway ➔ Lambda ➔ DynamoDB
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">Core Components</h3>
+                    <ul class="space-y-3 text-sm text-slate-700">
+                        <li><strong class="text-slate-900">Frontend & CDN:</strong> Hosted securely in an S3 bucket with no direct public access, served globally and aggressively cached via CloudFront with enforced HTTPS.</li>
+                        <li><strong class="text-slate-900">Stateful Backend:</strong> A Python-based AWS Lambda function performs atomic read/increment operations on a pay-per-request DynamoDB table to track persistent visitor counts.</li>
+                        <li><strong class="text-slate-900">API Layer:</strong> API Gateway proxies requests to Lambda, configured with strict CORS policies to only allow browser access from this domain.</li>
+                        <li><strong class="text-slate-900">Automation (IaC):</strong> The entire stack is defined declaratively using Terraform, deployed automatically via GitHub Actions pipelines that invalidate cache on every push.</li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">Engineering Challenges Solved</h3>
+                    
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 space-y-2">
+                        <h4 class="font-bold text-sm text-slate-900">1. Terraform State & Git Bloat</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            While staging, Git tracked a large local AWS provider binary (~600MB+), breaking GitHub's 100MB limit. I solved this by resetting the Git index (`git rm -r --cached .`), executing a clean mixed reset, and rebuilding a clean commit history with proper `.gitignore` protocols.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 space-y-2">
+                        <h4 class="font-bold text-sm text-slate-900">2. Avoiding Redundant JSON Parsing</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Initially, the frontend threw `SyntaxError: "undefined" is not valid JSON`. I realized HTTP API proxy integrations already parse JSON responses dynamically. Adjusting the fetch logic to utilize `response.json()` directly mapped the object, stabilizing the visitor counter.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
 
         <footer class="border-t border-slate-100 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
             <div>
@@ -70,6 +173,24 @@
     </div>
 
     <script>
+        // Tab Navigation Logic
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Reset all buttons to inactive state
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.className = "nav-btn px-4 py-2 rounded-lg font-medium text-sm transition-colors text-slate-600 hover:bg-slate-50 hover:text-slate-900";
+            });
+
+            // Show selected tab
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+            // Set selected button to active state
+            document.getElementById(`btn-${tabId}`).className = "nav-btn px-4 py-2 rounded-lg font-medium text-sm transition-colors bg-blue-50 text-blue-700";
+        }
+
+        // Visitor Counter Logic (Unchanged core functionality)
         const apiURL = 'https://t9bxl7c440.execute-api.eu-north-1.amazonaws.com/counter';
 
         async function getCounter() {
@@ -86,6 +207,8 @@
                 document.getElementById('counter').innerText = "Error";
             }
         }
+        
+        // Execute counter fetch on load
         getCounter();
     </script>
 </body>
