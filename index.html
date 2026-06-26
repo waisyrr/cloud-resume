@@ -288,9 +288,9 @@
                     <p class="mt-2 text-sm leading-6 text-slate-400">Terraform defines the infrastructure so the project is repeatable, documented, and easier to maintain than a manually configured cloud setup.</p>
                 </div>
                 <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-    <h3 class="text-lg font-extrabold text-white">CI/CD Implemented</h3>
+    <h3 class="text-lg font-extrabold text-white">CI/CD Pipeline</h3>
     <p class="mt-2 text-sm leading-6 text-slate-400">
-        The project uses a GitHub Actions pipeline to automatically deploy changes to S3 and invalidate the CloudFront cache on every push to the main branch.
+        Automated deployments are handled with GitHub Actions. Every push to the main branch synchronizes the website to Amazon S3 and invalidates the CloudFront cache, ensuring updates are published automatically.
     </p>
 </div>
 
